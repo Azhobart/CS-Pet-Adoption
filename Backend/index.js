@@ -23,7 +23,6 @@ app.get("/pets", async (request, response) => {
 app.get("/pets/:id", async (request, response) => {
   try {
     let getPet = await model.pets.findOne({ _id: request.params.id });
-    console.log(getPet);
     if (!getPet) {
       response.status(404).send("Pet has not been found.");
       return;
@@ -33,6 +32,46 @@ app.get("/pets/:id", async (request, response) => {
   } catch (error) {
     console.log(error);
     response.status(400).send("Generic Error");
+  }
+});
+
+app.post("/pets", (req, res) => {
+  let data = req.body;
+  try {
+    let new_pet = new model.pets({
+      name: data.name,
+      species: data.species,
+      breed: data.breed,
+      age: data.age,
+      gender: data.gender,
+    });
+
+    let error = new_pet.validateSync();
+    if (error) {
+      res.status(404).json(error);
+      return;
+    }
+
+    new_pet.save();
+    res.status(201).json(new_pet);
+  } catch (error) {
+    res.status(error).send("Something failed when making a pet.");
+  }
+});
+
+app.delete("/pets/:id", async (req, res) => {
+  try {
+    let is_deleted = await model.pets.findOneAndDelete({
+      _id: req.params.id,
+    });
+    if (!is_deleted) {
+      res.status(404).send("Could not find a pet with that id.");
+      return;
+    }
+
+    res.status(204).send("Succesful deletion.");
+  } catch (error) {
+    res.status(404).send("Delete failure.");
   }
 });
 
