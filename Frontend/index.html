@@ -19,9 +19,9 @@
 
             <div  class="page" v-if="page === 1">
                 <h1>Pet Listings</h1>
-                <input type="text" placeholder="Search...">
+                <input type="text" v-model="searchInput" placeholder="Search...">
                 <p>Search by</p>
-                <select>
+                <select v-model="searchBy">
                     <option value="name">Name</option>
                     <option value="species">Species</option>
                     <option value="breed">Breed</option>
@@ -35,14 +35,14 @@
                         <p>Gender</p>
                         
                     </div>
-                    <div class="table-row" v-for="(pet, indx) in pets">
+                    <div class="table-row" v-for="(pet, indx) in filtered_pets">
                         <p>{{pet.name}}</p>
                         <p>{{pet.species}}</p>
                         <p>{{pet.breed}}</p>
                         <p>{{pet.age}}</p>
                         <p>{{pet.gender}}</p>
                         <button @click="fillApplication(indx)">Adopt</button>
-                        <button @click="deletePetListing(indx)">X</button>
+                        <button @click="deletePetListing(pet._id)">X</button>
                     </div>
                 </div>
 
