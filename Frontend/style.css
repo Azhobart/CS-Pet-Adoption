@@ -1,0 +1,21 @@
+nav {
+    display:flex;
+    flex-flow: row nowrap;
+    height: 30px;
+    align-items: center;
+    padding: 10px;
+    background-color: grey;
+}
+
+.navButton {
+    padding: 10px;
+    background-color: grey;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+

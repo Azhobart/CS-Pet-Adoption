@@ -9,13 +9,34 @@
 </head>
 <body>
     <div id="app">
+        <div id="wrapper"></div>
+
+            <nav>
+                <p class="navButton" @click="swapPage(1)">Listings</p>
+                <p class="navButton" @click="swapPage(2)">Applications</p>
+            </nav>
+
+
+            <div  class="page" v-if="page === 1">
+                <h1>Pet Listings</h1>
+
+
+            </div>
+
+
+            <div class="page" v-else="page ===2">
+                <h1>Pet Applications</h1>
+
+            </div>
+        </div>
         
 
-        
+
 
     </div>
     <script src="app.js"></script>
 </body>
+
 
 
 </html>
