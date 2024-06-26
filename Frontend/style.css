@@ -1,21 +1,35 @@
 nav {
-    display:flex;
-    flex-flow: row nowrap;
-    height: 30px;
-    align-items: center;
-    padding: 10px;
-    background-color: grey;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 30px;
+  align-items: center;
+  padding: 10px;
+  background-color: grey;
 }
 
 .navButton {
-    padding: 10px;
-    background-color: grey;
+  padding: 10px;
+  background-color: grey;
 }
 
 .page {
-    display: flex;
-    justify-content: center;
-    justify-items: center;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
 }
 
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+
+  &:nth-child(even) {
+    background-color: grey;
+  }
+}
