@@ -19,6 +19,13 @@
 
             <div  class="page" v-if="page === 1">
                 <h1>Pet Listings</h1>
+                <input type="text" placeholder="Search...">
+                <p>Search by</p>
+                <select>
+                    <option value="name">Name</option>
+                    <option value="species">Species</option>
+                    <option value="breed">Breed</option>
+                </select>
                 <div class="table">                
                     <div class="table-row">
                         <p>Name</p>
@@ -26,6 +33,7 @@
                         <p>Breed</p>
                         <p>Age</p>
                         <p>Gender</p>
+                        <button >X</button>
                     </div>
                     <div class="table-row" v-for="pet in pets">
                         <p>{{pet.name}}</p>
@@ -41,7 +49,28 @@
 
             <div class="page" v-else="page ===2">
                 <h1>Pet Applications</h1>
+                <div id="add-app-div">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Phone Number">
+                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Pet ID">
+                    <button @click="createApplication()">Submit Application</button>
+                </div>
 
+                <div class="table">                
+                    <div class="table-row">
+                        <p>Name</p>
+                        <p>Phone Number</p>
+                        <p>Email</p>
+                        <p>Pet ID</p>
+                    </div>
+                    <div class="table-row" v-for="application in applications">
+                        <p>{{application.name}}</p>
+                        <p>{{application.phone_number}}</p>
+                        <p>{{application.email}}</p>
+                        <p>{{application.pet_id}}</p>
+                    </div>
+                </div>
             </div>
         </div>
         
