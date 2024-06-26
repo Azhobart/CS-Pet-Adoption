@@ -8,7 +8,6 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 
-// set up a GET endpoint
 app.get("/pets", async (request, response) => {
   try {
     let pets = await model.pets.find();
@@ -44,6 +43,7 @@ app.post("/pets", (req, res) => {
       breed: data.breed,
       age: data.age,
       gender: data.gender,
+      temperament: data.temperament,
     });
 
     let error = new_pet.validateSync();

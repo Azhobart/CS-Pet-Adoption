@@ -8,6 +8,7 @@ const PetSchema = new mongoose.Schema({
   breed: String,
   age: Number,
   gender: String,
+  temperament: String,
 });
 
 const AppSchema = new mongoose.Schema({
