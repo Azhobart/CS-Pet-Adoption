@@ -27,7 +27,7 @@ nav {
 
 .table-row {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 1fr 1fr;
 
   &:nth-child(even) {
     background-color: grey;

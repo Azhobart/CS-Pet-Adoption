@@ -33,14 +33,16 @@
                         <p>Breed</p>
                         <p>Age</p>
                         <p>Gender</p>
-                        <button >X</button>
+                        
                     </div>
-                    <div class="table-row" v-for="pet in pets">
+                    <div class="table-row" v-for="(pet, indx) in pets">
                         <p>{{pet.name}}</p>
                         <p>{{pet.species}}</p>
                         <p>{{pet.breed}}</p>
                         <p>{{pet.age}}</p>
                         <p>{{pet.gender}}</p>
+                        <button @click="fillApplication(indx)">Adopt</button>
+                        <button @click="deletePetListing(indx)">X</button>
                     </div>
                 </div>
 
@@ -50,10 +52,10 @@
             <div class="page" v-else="page ===2">
                 <h1>Pet Applications</h1>
                 <div id="add-app-div">
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="Phone Number">
-                    <input type="text" placeholder="Email">
-                    <input type="text" placeholder="Pet ID">
+                    <input type="text" placeholder="Name" v-model="userName">
+                    <input type="text" placeholder="Phone Number" v-model="phoneNumber">
+                    <input type="text" placeholder="Email" v-model="email">
+                    <input type="text" placeholder="Pet ID" v-model="petID">
                     <button @click="createApplication()">Submit Application</button>
                 </div>
 
