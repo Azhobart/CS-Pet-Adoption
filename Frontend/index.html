@@ -19,7 +19,22 @@
 
             <div  class="page" v-if="page === 1">
                 <h1>Pet Listings</h1>
-
+                <div class="table">                
+                    <div class="table-row">
+                        <p>Name</p>
+                        <p>Species</p>
+                        <p>Breed</p>
+                        <p>Age</p>
+                        <p>Gender</p>
+                    </div>
+                    <div class="table-row" v-for="pet in pets">
+                        <p>{{pet.name}}</p>
+                        <p>{{pet.species}}</p>
+                        <p>{{pet.breed}}</p>
+                        <p>{{pet.age}}</p>
+                        <p>{{pet.gender}}</p>
+                    </div>
+                </div>
 
             </div>
 
